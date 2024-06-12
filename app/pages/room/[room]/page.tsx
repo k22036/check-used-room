@@ -5,8 +5,9 @@ import completeData from '@/lib/data/complete_data.json'
 import { RoomData } from '@/lib/types'
 import { filterData } from '@/lib/filterData'
 import { compareOpenTime } from '@/lib/compareOpenTime'
+import exp from 'constants'
 
-export const Page = ({ params }: { params: { room: string } }) => {
+const Page = ({ params }: { params: { room: string } }) => {
 
   const room = decodeURIComponent(params.room)
   const roomData: RoomData = JSON.parse(JSON.stringify(completeData))
@@ -62,4 +63,5 @@ export const Page = ({ params }: { params: { room: string } }) => {
     </div>
   )
 }
+
 export default Page
