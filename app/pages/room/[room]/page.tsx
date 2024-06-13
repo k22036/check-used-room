@@ -9,7 +9,11 @@ import { compareOpenTime } from '@/lib/compareOpenTime'
 const Page = ({ params }: { params: { room: string } }) => {
 
   const room = decodeURIComponent(params.room)
-  const roomData: RoomData = JSON.parse(JSON.stringify(completeData))
+  
+  let roomData: RoomData = {}
+  if (room in completeData) {
+    roomData = completeData
+  }
 
   const [season, setSeason] = React.useState("前期")
   const changeSeasonValue = (event: React.ChangeEvent<HTMLInputElement>) => setSeason(event.target.value);
@@ -18,6 +22,10 @@ const Page = ({ params }: { params: { room: string } }) => {
 
   const [day, setDay] = React.useState("月")
   const changeDayValue = (event: React.ChangeEvent<HTMLInputElement>) => setDay(event.target.value);
+
+  if (typeof window === 'undefined') {
+    return <div>Loading...</div>
+  }
   
   return (
     <div>
