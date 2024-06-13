@@ -5,7 +5,6 @@ import completeData from '@/lib/data/complete_data.json'
 import { RoomData } from '@/lib/types'
 import { filterData } from '@/lib/filterData'
 import { compareOpenTime } from '@/lib/compareOpenTime'
-import exp from 'constants'
 
 const Page = ({ params }: { params: { room: string } }) => {
 
