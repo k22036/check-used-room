@@ -22,10 +22,6 @@ const Page = ({ params }: { params: { room: string } }) => {
 
   const [day, setDay] = React.useState("月")
   const changeDayValue = (event: React.ChangeEvent<HTMLInputElement>) => setDay(event.target.value);
-
-  if (typeof window === 'undefined') {
-    return <div>Loading...</div>
-  }
   
   return (
     <div>
