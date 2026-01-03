@@ -21,13 +21,6 @@ export default function Home() {
           value={param}
           onChange={(e) => setParam(e.target.value)}
         />
-        <button
-          type="button"
-          className="px-5 py-2 bg-gradient-to-r from-orange-400 to-yellow-400 text-white font-semibold rounded-md shadow hover:from-orange-500 hover:to-yellow-500 transition border border-orange-400"
-          onClick={() => {}}
-        >
-          検索
-        </button>
       </div>
       <div className="w-full max-w-xl bg-white rounded-lg shadow p-6">
         <ul className="space-y-3">
