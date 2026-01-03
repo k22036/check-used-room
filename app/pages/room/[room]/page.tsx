@@ -24,6 +24,10 @@ const Page = ({ params }: { params: { room: string } }) => {
   const changeDayValue = (event: React.ChangeEvent<HTMLInputElement>) =>
     setDay(event.target.value);
 
+  const subject_key = (data: RoomData[string][number]): string => {
+    return `${data.subject}-${data.room}-${data.season}-${data.open_time}`;
+  };
+
   return (
     <div>
       <h1>{room}</h1>
@@ -70,8 +74,8 @@ const Page = ({ params }: { params: { room: string } }) => {
           {filterData(roomData, room, season)
             .filter((data) => data.open_time[0] === day)
             .sort((a, b) => compareOpenTime(a, b))
-            .map((data, i) => (
-              <div key={i}>
+            .map((data) => (
+              <div key={subject_key(data)}>
                 <div>{data.subject}</div>
                 <div>{data.room}</div>
                 <div>{data.season}</div>

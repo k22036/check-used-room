@@ -18,7 +18,9 @@ export default function Home() {
             setParam(e.target.value);
           }}
         />
-        <button className="border-solid border-black border-2">Search</button>
+        <button type="button" className="border-solid border-black border-2">
+          Search
+        </button>
       </div>
       {filteredRooms.sort().map((room) => (
         <div key={room}>
