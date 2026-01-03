@@ -93,10 +93,10 @@ const Page = () => {
           </div>
         </div>
         <div className="flex flex-wrap justify-center gap-3 mb-8">
-          {DAYS.map((d, index) => (
+          {DAYS.map((d) => (
             <div key={d} className="flex items-center gap-1">
               <input
-                id={String(index)}
+                id={`day-${d}`}
                 type="radio"
                 value={d}
                 checked={d === day}
@@ -104,7 +104,7 @@ const Page = () => {
                 className="accent-orange-400 w-5 h-5"
               />
               <label
-                htmlFor={String(index)}
+                htmlFor={`day-${d}`}
                 className="text-orange-600 font-medium"
               >
                 {d}
