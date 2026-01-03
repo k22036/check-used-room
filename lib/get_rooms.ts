@@ -1,3 +1,3 @@
-import data from './data/complete_data.json'
+import data from "./data/complete_data.json";
 
-export const rooms = Object.keys(data)
+export const rooms = Object.keys(data);
