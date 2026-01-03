@@ -35,6 +35,12 @@ const Page = () => {
     return `${data.subject}-${data.room}-${data.season}-${data.open_time}`;
   };
 
+  const filteredData = roomData[room]
+    ? filterData(roomData, room, season)
+        .filter((data) => data.open_time[0] === day)
+        .sort((a, b) => compareOpenTime(a, b))
+    : [];
+
   return (
     <main className="min-h-screen bg-gradient-to-br from-yellow-50 via-orange-100 to-orange-200 flex flex-col items-center py-10">
       <div className="w-full max-w-2xl bg-white rounded-lg shadow p-8">
@@ -113,25 +119,20 @@ const Page = () => {
         </div>
         {roomData[room] ? (
           <div>
-            {filterData(roomData, room, season)
-              .filter((data) => data.open_time[0] === day)
-              .sort((a, b) => compareOpenTime(a, b))
-              .map((data) => (
-                <div
-                  key={subject_key(data)}
-                  className="mb-6 p-5 rounded-lg border border-orange-200 bg-orange-50/60 shadow-sm"
-                >
-                  <div className="text-lg font-semibold text-orange-700 mb-1">
-                    {data.subject}
-                  </div>
-                  <div className="text-sm text-orange-500">
-                    教室: {data.room} / {data.season} / {data.open_time}
-                  </div>
+            {filteredData.map((data) => (
+              <div
+                key={subject_key(data)}
+                className="mb-6 p-5 rounded-lg border border-orange-200 bg-orange-50/60 shadow-sm"
+              >
+                <div className="text-lg font-semibold text-orange-700 mb-1">
+                  {data.subject}
                 </div>
-              ))}
-            {filterData(roomData, room, season).filter(
-              (data) => data.open_time[0] === day,
-            ).length === 0 && (
+                <div className="text-sm text-orange-500">
+                  教室: {data.room} / {data.season} / {data.open_time}
+                </div>
+              </div>
+            ))}
+            {filteredData.length === 0 && (
               <div className="text-orange-300 text-center py-8">
                 該当する授業はありません
               </div>
