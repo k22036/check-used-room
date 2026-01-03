@@ -1,12 +1,18 @@
 "use client";
 
-import React from "react";
+import { useParams } from "next/navigation";
+import { useState } from "react";
 import { compareOpenTime } from "@/lib/compareOpenTime";
 import completeData from "@/lib/data/complete_data.json";
 import { filterData } from "@/lib/filterData";
 import type { RoomData } from "@/lib/types";
 
-const Page = ({ params }: { params: { room: string } }) => {
+type Params = {
+  room: string;
+};
+
+const Page = () => {
+  const params = useParams<Params>();
   const room = decodeURIComponent(params.room);
 
   let roomData: RoomData = {};
@@ -14,13 +20,13 @@ const Page = ({ params }: { params: { room: string } }) => {
     roomData = completeData;
   }
 
-  const [season, setSeason] = React.useState("前期");
+  const [season, setSeason] = useState("前期");
   const changeSeasonValue = (event: React.ChangeEvent<HTMLInputElement>) =>
     setSeason(event.target.value);
 
   const days = ["月", "火", "水", "木", "金", "土", "日"];
 
-  const [day, setDay] = React.useState("月");
+  const [day, setDay] = useState("月");
   const changeDayValue = (event: React.ChangeEvent<HTMLInputElement>) =>
     setDay(event.target.value);
 
