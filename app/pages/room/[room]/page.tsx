@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useParams } from "next/navigation";
 import { useState } from "react";
 import { compareOpenTime } from "@/lib/compareOpenTime";
+import { DAYS } from "@/lib/constants/date";
 import completeData from "@/lib/data/complete_data.json";
 import { filterData } from "@/lib/filterData";
 import type { RoomData } from "@/lib/types";
@@ -25,9 +26,7 @@ const Page = () => {
   const changeSeasonValue = (event: React.ChangeEvent<HTMLInputElement>) =>
     setSeason(event.target.value);
 
-  const days = ["月", "火", "水", "木", "金", "土", "日"];
-
-  const [day, setDay] = useState("月");
+  const [day, setDay] = useState(DAYS[0]);
   const changeDayValue = (event: React.ChangeEvent<HTMLInputElement>) =>
     setDay(event.target.value);
 
@@ -98,7 +97,7 @@ const Page = () => {
           </div>
         </div>
         <div className="flex flex-wrap justify-center gap-3 mb-8">
-          {days.map((d, index) => (
+          {DAYS.map((d, index) => (
             <div key={d} className="flex items-center gap-1">
               <input
                 id={String(index)}
