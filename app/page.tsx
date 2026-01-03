@@ -13,14 +13,30 @@ export default function Home() {
       <h1 className="text-3xl font-bold mb-8 text-orange-700 drop-shadow">
         教室検索
       </h1>
-      <div className="flex items-center gap-3 mb-8 bg-white rounded-lg shadow px-6 py-4">
-        <input
-          type="text"
-          placeholder="教室名で検索..."
-          className="px-4 py-2 border border-orange-300 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-300 transition w-64 text-lg bg-orange-50/50"
-          value={param}
-          onChange={(e) => setParam(e.target.value)}
-        />
+      <div className="flex items-center justify-center mb-8 w-full">
+        <div className="relative w-full max-w-lg">
+          <span className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+            <svg
+              className="w-5 h-5 text-orange-400"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              viewBox="0 0 24 24"
+            >
+              <title>検索アイコン</title>
+              <circle cx="11" cy="11" r="8" />
+              <line x1="21" y1="21" x2="16.65" y2="16.65" />
+            </svg>
+          </span>
+          <input
+            type="text"
+            placeholder="教室名で検索..."
+            className="block w-full pl-10 pr-4 py-3 border-2 border-orange-200 rounded-xl bg-orange-50/70 text-lg focus:outline-none focus:ring-2 focus:ring-orange-300 shadow transition placeholder-orange-300"
+            value={param}
+            onChange={(e) => setParam(e.target.value)}
+            style={{ boxShadow: "0 2px 8px 0 rgba(255, 183, 77, 0.10)" }}
+          />
+        </div>
       </div>
       <div className="w-full max-w-xl bg-white rounded-lg shadow p-6">
         <ul className="space-y-3">
