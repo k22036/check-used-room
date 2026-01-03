@@ -17,11 +17,6 @@ const Page = () => {
   const params = useParams<Params>();
   const room = decodeURIComponent(params.room);
 
-  let roomData: RoomData = {};
-  if (room in completeData) {
-    roomData = completeData;
-  }
-
   const [season, setSeason] = useState("前期");
   const changeSeasonValue = (event: React.ChangeEvent<HTMLInputElement>) =>
     setSeason(event.target.value);
@@ -34,6 +29,7 @@ const Page = () => {
     return `${data.subject}-${data.room}-${data.season}-${data.open_time}`;
   };
 
+  const roomData: RoomData = completeData;
   const filteredData = roomData[room]
     ? filterData(roomData, room, season)
         .filter((data) => data.open_time[0] === day)
