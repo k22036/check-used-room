@@ -1,14 +1,14 @@
-import type { RoomData } from "@/lib/types";
+import type { RoomDataItem } from "@/lib/types";
 import SubjectContent from "./detail/SubjectContent";
 import SubjectNotFound from "./detail/SubjectNotFound";
 import SubjectTitle from "./detail/SubjectTitle";
 
 interface Props {
-  data: RoomData[string][number][];
+  data: RoomDataItem[];
 }
 
 const RoomDetailList = ({ data }: Props) => {
-  const subjectKey = (data: RoomData[string][number]): string => {
+  const subjectKey = (data: RoomDataItem): string => {
     return `${data.subject}-${data.room}-${data.season}-${data.open_time}`;
   };
 

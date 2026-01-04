@@ -1,7 +1,7 @@
-import type { RoomData } from "@/lib/types";
+import type { RoomDataItem } from "@/lib/types";
 
 interface Props {
-  data: RoomData[string][number];
+  data: RoomDataItem;
 }
 
 const SubjectContent = ({ data }: Props) => {
