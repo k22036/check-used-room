@@ -3,6 +3,7 @@
 import { useParams } from "next/navigation";
 import { useState } from "react";
 import BackToHome from "@/components/BackToHome";
+import PageTitle from "@/components/PageTitle";
 import DaySelector from "@/components/room/DaySelector";
 import RoomDetailList from "@/components/room/RoomDetailList";
 import RoomNotFound from "@/components/room/RoomNotFound";
@@ -36,15 +37,11 @@ const Page = () => {
         .sort((a, b) => compareOpenTime(a, b))
     : [];
 
-  const pageTitle = `${room} の詳細`;
-
   return (
     <main className="min-h-screen bg-gradient-to-br from-yellow-50 via-orange-100 to-orange-200 flex flex-col items-center py-10">
       <div className="w-full max-w-2xl bg-white rounded-lg shadow p-8">
         <BackToHome />
-        <h1 className="text-2xl md:text-3xl font-bold mb-8 text-orange-700 drop-shadow text-center">
-          {pageTitle}
-        </h1>
+        <PageTitle title={`${room} の詳細`} />
         <SeasonSelector season={season} onChange={changeSeasonValue} />
         <DaySelector day={day} onChange={changeDayValue} />
         {roomData[room] ? (

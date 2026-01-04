@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useState } from "react";
+import PageTitle from "@/components/PageTitle";
 import { rooms } from "@/lib/get_rooms";
 
 export default function Home() {
@@ -10,9 +11,7 @@ export default function Home() {
 
   return (
     <main className="min-h-screen bg-gradient-to-br from-yellow-50 via-orange-100 to-orange-200 flex flex-col items-center py-10">
-      <h1 className="text-3xl font-bold mb-8 text-orange-700 drop-shadow">
-        教室検索
-      </h1>
+      <PageTitle title="教室一覧" />
       <div className="flex items-center justify-center mb-8 w-full">
         <div className="relative w-full max-w-lg">
           <span className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
