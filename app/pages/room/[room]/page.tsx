@@ -9,7 +9,7 @@ import RoomDetailList from "@/components/room/RoomDetailList";
 import RoomNotFound from "@/components/room/RoomNotFound";
 import SeasonSelector from "@/components/room/SeasonSelector";
 import { compareOpenTime } from "@/lib/compareOpenTime";
-import { DAYS } from "@/lib/constants/date";
+import { DAYS, SEASONS } from "@/lib/constants/date";
 import completeData from "@/lib/data/complete_data.json";
 import { filterData } from "@/lib/filterData";
 import type { RoomData } from "@/lib/types";
@@ -22,7 +22,7 @@ const Page = () => {
   const params = useParams<Params>();
   const room = decodeURIComponent(params.room);
 
-  const [season, setSeason] = useState("前期");
+  const [season, setSeason] = useState(SEASONS[0].value);
   const changeSeasonValue = (event: React.ChangeEvent<HTMLInputElement>) =>
     setSeason(event.target.value);
 
