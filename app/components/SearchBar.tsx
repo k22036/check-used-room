@@ -31,10 +31,9 @@ const SearchBar = ({
       <input
         type="text"
         placeholder={placeholder}
-        className="block w-full pl-10 pr-4 py-3 border-2 border-orange-200 rounded-xl bg-orange-50/70 text-lg focus:outline-none focus:ring-2 focus:ring-orange-300 shadow transition placeholder-orange-300"
+        className="block w-full pl-10 pr-4 py-3 border-2 border-orange-200 rounded-xl bg-orange-50/70 text-lg focus:outline-none focus:ring-2 focus:ring-orange-300 shadow-[0_2px_8px_0_rgba(255,183,77,0.10)] transition placeholder-orange-300"
         value={value}
         onChange={onChange}
-        style={{ boxShadow: "0 2px 8px 0 rgba(255, 183, 77, 0.10)" }}
       />
     </div>
   </div>
