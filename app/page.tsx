@@ -2,8 +2,8 @@
 
 import Link from "next/link";
 import { useState } from "react";
-import SearchBar from "@/app/components/SearchBar";
 import PageTitle from "@/components/PageTitle";
+import SearchBar from "@/components/SearchBar";
 import { rooms } from "@/lib/get_rooms";
 
 export default function Home() {
