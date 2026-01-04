@@ -7,15 +7,15 @@ import PageTitle from "@/components/PageTitle";
 import { rooms } from "@/lib/get_rooms";
 
 export default function Home() {
-  const [param, setParam] = useState("");
-  const filteredRooms = rooms.filter((room) => room.includes(param));
+  const [searchText, setSearchText] = useState("");
+  const filteredRooms = rooms.filter((room) => room.includes(searchText));
 
   return (
     <main className="min-h-screen bg-gradient-to-br from-yellow-50 via-orange-100 to-orange-200 flex flex-col items-center py-10">
       <PageTitle title="教室一覧" />
       <SearchBar
-        value={param}
-        onChange={(e) => setParam(e.target.value)}
+        value={searchText}
+        onChange={(e) => setSearchText(e.target.value)}
         placeholder="教室名で検索..."
         className="mb-8"
       />
