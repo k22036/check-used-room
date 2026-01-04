@@ -21,13 +21,11 @@ export default function Home() {
         className="mb-8"
       />
       <div className="w-full max-w-xl bg-white rounded-lg shadow p-6">
-        <ul className="space-y-3">
-          {filteredRooms.length === 0 ? (
-            <RoomNotFound />
-          ) : (
-            <RoomList rooms={filteredRooms} />
-          )}
-        </ul>
+        {filteredRooms.length === 0 ? (
+          <RoomNotFound />
+        ) : (
+          <RoomList rooms={filteredRooms} />
+        )}
       </div>
     </main>
   );
