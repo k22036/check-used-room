@@ -5,6 +5,7 @@ import { useState } from "react";
 import PageTitle from "@/components/PageTitle";
 import SearchBar from "@/components/SearchBar";
 import { rooms } from "@/lib/get_rooms";
+import RoomNotFound from "@/components/room/RoomNotFound";
 
 export default function Home() {
   const [searchText, setSearchText] = useState("");
@@ -22,9 +23,7 @@ export default function Home() {
       <div className="w-full max-w-xl bg-white rounded-lg shadow p-6">
         <ul className="space-y-3">
           {filteredRooms.length === 0 ? (
-            <li className="text-orange-300 text-center py-8">
-              該当する教室がありません
-            </li>
+            <RoomNotFound />
           ) : (
             filteredRooms.sort().map((room) => (
               <li key={room}>
