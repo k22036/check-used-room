@@ -1,11 +1,11 @@
 "use client";
 
-import Link from "next/link";
 import { useState } from "react";
+import RoomList from "@/components/home/RoomList";
 import PageTitle from "@/components/PageTitle";
+import RoomNotFound from "@/components/room/RoomNotFound";
 import SearchBar from "@/components/SearchBar";
 import { rooms } from "@/lib/get_rooms";
-import RoomNotFound from "@/components/room/RoomNotFound";
 
 export default function Home() {
   const [searchText, setSearchText] = useState("");
@@ -25,16 +25,7 @@ export default function Home() {
           {filteredRooms.length === 0 ? (
             <RoomNotFound />
           ) : (
-            filteredRooms.sort().map((room) => (
-              <li key={room}>
-                <Link
-                  href={`/pages/room/${room}`}
-                  className="block px-4 py-3 rounded-md hover:bg-orange-50 border border-orange-200 transition text-orange-700 font-medium shadow-sm"
-                >
-                  {room}
-                </Link>
-              </li>
-            ))
+            <RoomList rooms={filteredRooms} />
           )}
         </ul>
       </div>
