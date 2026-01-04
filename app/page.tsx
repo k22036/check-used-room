@@ -23,7 +23,7 @@ export default function Home() {
         <ul className="space-y-3">
           {filteredRooms.length === 0 ? (
             <li className="text-orange-300 text-center py-8">
-              該当する部屋がありません
+              該当する教室がありません
             </li>
           ) : (
             filteredRooms.sort().map((room) => (
