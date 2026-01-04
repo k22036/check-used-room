@@ -6,3 +6,5 @@ export interface RoomData {
     open_time: string;
   }[];
 }
+
+export type RoomDataItem = RoomData[string][number];
