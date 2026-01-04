@@ -1,8 +1,9 @@
 "use client";
 
-import Link from "next/link";
 import { useState } from "react";
+import RoomList from "@/components/home/RoomList";
 import PageTitle from "@/components/PageTitle";
+import RoomNotFound from "@/components/room/RoomNotFound";
 import SearchBar from "@/components/SearchBar";
 import { rooms } from "@/lib/get_rooms";
 
@@ -20,24 +21,11 @@ export default function Home() {
         className="mb-8"
       />
       <div className="w-full max-w-xl bg-white rounded-lg shadow p-6">
-        <ul className="space-y-3">
-          {filteredRooms.length === 0 ? (
-            <li className="text-orange-300 text-center py-8">
-              該当する教室がありません
-            </li>
-          ) : (
-            filteredRooms.sort().map((room) => (
-              <li key={room}>
-                <Link
-                  href={`/pages/room/${room}`}
-                  className="block px-4 py-3 rounded-md hover:bg-orange-50 border border-orange-200 transition text-orange-700 font-medium shadow-sm"
-                >
-                  {room}
-                </Link>
-              </li>
-            ))
-          )}
-        </ul>
+        {filteredRooms.length === 0 ? (
+          <RoomNotFound />
+        ) : (
+          <RoomList rooms={filteredRooms} />
+        )}
       </div>
     </main>
   );
