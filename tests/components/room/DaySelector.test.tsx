@@ -1,6 +1,7 @@
 import { render, screen } from "@testing-library/react";
 import DaySelector from "@/components/room/DaySelector";
 import "@testing-library/jest-dom";
+import { jest } from "@jest/globals";
 import { DAYS } from "@/lib/constants/date";
 
 describe("DaySelector", () => {
@@ -18,10 +19,15 @@ describe("DaySelector", () => {
   });
 
   it("calls onChange when a different day is selected", () => {
-    const handleChange = jest.fn();
-    render(<DaySelector day={DAYS[0]} onChange={handleChange} />);
+    let selectedDay = DAYS[0];
+    const handleChange = jest.fn((e: React.ChangeEvent<HTMLInputElement>) => {
+      selectedDay = e.target.value;
+    });
+    render(<DaySelector day={selectedDay} onChange={handleChange} />);
+
     const input = screen.getByLabelText(DAYS[1]);
     input.click();
     expect(handleChange).toHaveBeenCalled();
+    expect(selectedDay).toBe(DAYS[1]);
   });
 });

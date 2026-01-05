@@ -2,6 +2,7 @@ import { render, screen } from "@testing-library/react";
 import SeasonSelector from "@/components/room/SeasonSelector";
 import { SEASONS } from "@/lib/constants/date";
 import "@testing-library/jest-dom";
+import { jest } from "@jest/globals";
 
 describe("SeasonSelector", () => {
   it("renders all season options", () => {
@@ -18,12 +19,15 @@ describe("SeasonSelector", () => {
   });
 
   it("calls onChange when a different season is selected", () => {
-    const handleChange = jest.fn();
-    render(
-      <SeasonSelector season={SEASONS[0].value} onChange={handleChange} />,
-    );
+    let selectedSeason = SEASONS[0].value;
+    const handleChange = jest.fn((e: React.ChangeEvent<HTMLInputElement>) => {
+      selectedSeason = e.target.value;
+    });
+    render(<SeasonSelector season={selectedSeason} onChange={handleChange} />);
+
     const input = screen.getByLabelText(SEASONS[1].label);
     input.click();
     expect(handleChange).toHaveBeenCalled();
+    expect(selectedSeason).toBe(SEASONS[1].value);
   });
 });
