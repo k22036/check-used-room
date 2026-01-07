@@ -22,7 +22,7 @@ describe("filterData", () => {
     expect(result).toEqual([]);
   });
 
-  it("handles non-existent rooms gracefully", () => {
+  it("throws an error when room doesn't exist", () => {
     // 存在しないroomの場合はundefined.filterでエラーになるため、例外をテスト
     expect(() => filterData(mockData, "C303", "前期")).toThrow();
   });
