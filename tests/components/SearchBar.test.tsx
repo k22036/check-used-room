@@ -23,6 +23,6 @@ describe("SearchBar", () => {
 
   it("renders the search icon", () => {
     render(<SearchBar value="" onChange={() => {}} />);
-    expect(screen.getByTitle("検索アイコン")).toBeInTheDocument();
+    expect(screen.getByTestId("SearchIcon")).toBeInTheDocument();
   });
 });

@@ -12,6 +12,6 @@ describe("BackToHome", () => {
 
   it("renders the back icon", () => {
     render(<BackToHome />);
-    expect(screen.getByTitle("戻るアイコン")).toBeInTheDocument();
+    expect(screen.getByTestId("ArrowBackIosNewIcon")).toBeInTheDocument();
   });
 });
