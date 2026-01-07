@@ -1,4 +1,4 @@
-import { jest } from "@jest/globals";
+import "@testing-library/jest-dom";
 import { fireEvent, render, screen } from "@testing-library/react";
 import Home from "@/app/page";
 
@@ -9,7 +9,9 @@ jest.mock("@/lib/get_rooms", () => ({
 describe("Home page", () => {
   it("renders the page title", () => {
     render(<Home />);
-    expect(screen.getByText("教室一覧")).toBeInTheDocument();
+    expect(
+      screen.getByRole("heading", { name: /教室一覧/i }),
+    ).toBeInTheDocument();
   });
 
   it("shows all rooms by default", () => {
