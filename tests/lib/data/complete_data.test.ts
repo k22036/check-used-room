@@ -1,6 +1,6 @@
 import * as z from "zod";
 import data from "@/lib/data/complete_data.json";
-import { CompleteDataSchema } from "@/tests/test_helper/zod_zchema";
+import { CompleteDataSchema } from "@/tests/test_helper/zod_schema";
 
 describe("complete_data.json schema", () => {
   it("should match the expected schema", () => {

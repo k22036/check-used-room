@@ -1,5 +1,5 @@
 import type { RoomData, RoomDataItem } from "@/lib/types";
-import { CompleteDataSchema, DataEntrySchema } from "../test_helper/zod_zchema";
+import { CompleteDataSchema, DataEntrySchema } from "../test_helper/zod_schema";
 
 // テスト用データ
 const validItem: RoomDataItem = {
