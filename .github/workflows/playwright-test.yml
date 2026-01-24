@@ -1,5 +1,12 @@
 name: Playwright Tests
-on: push
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:
 
 jobs:
   test:
@@ -9,6 +16,10 @@ jobs:
       options: --init --ipc=host
     steps:
       - uses: actions/checkout@v6
+
+      - name: Install unzip
+        run: sudo apt-get update && sudo apt-get install -y unzip
+
       - uses: oven-sh/setup-bun@v2
 
       - name: Install dependencies
@@ -16,3 +27,10 @@ jobs:
 
       - name: Run E2E Tests
         run: bun test:e2e
+
+      - uses: actions/upload-artifact@v6
+        if: ${{ !cancelled() }}
+        with:
+          name: playwright-report
+          path: playwright-report/
+          retention-days: 30
