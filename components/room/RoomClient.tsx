@@ -31,7 +31,8 @@ export default function RoomClient() {
     setDay(event.target.value);
 
   const roomData: RoomData = completeData;
-  const filteredData = roomData[room]
+  const roomExists = !!roomData[room];
+  const filteredData = roomExists
     ? filterData(roomData, room, season)
         .filter((data) => data.open_time[0] === day)
         .sort((a, b) => compareOpenTime(a, b))
@@ -44,11 +45,7 @@ export default function RoomClient() {
         <PageTitle title={`${room} の詳細`} />
         <SeasonSelector season={season} onChange={changeSeasonValue} />
         <DaySelector day={day} onChange={changeDayValue} />
-        {roomData[room] ? (
-          <RoomDetailList data={filteredData} />
-        ) : (
-          <RoomNotFound />
-        )}
+        {roomExists ? <RoomDetailList data={filteredData} /> : <RoomNotFound />}
       </div>
     </main>
   );
