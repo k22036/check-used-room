@@ -7,7 +7,7 @@ interface Props {
 const RoomList = ({ rooms }: Props) => {
   return (
     <ul className="space-y-3">
-      {rooms.sort().map((room) => (
+      {rooms.map((room) => (
         <li key={room}>
           <Link
             href={`/pages/room/${room}`}

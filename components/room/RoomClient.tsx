@@ -1,7 +1,7 @@
 "use client";
 
 import { useParams } from "next/navigation";
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import BackToHome from "@/components/BackToHome";
 import PageTitle from "@/components/PageTitle";
 import DaySelector from "@/components/room/DaySelector";
@@ -32,11 +32,12 @@ export default function RoomClient() {
 
   const roomData: RoomData = completeData;
   const roomExists = !!roomData[room];
-  const filteredData = roomExists
-    ? filterData(roomData, room, season)
-        .filter((data) => data.open_time[0] === day)
-        .sort((a, b) => compareOpenTime(a, b))
-    : [];
+  const filteredData = useMemo(() => {
+    if (!roomExists) return [];
+    return filterData(roomData, room, season)
+      .filter((data) => data.open_time[0] === day)
+      .sort((a, b) => compareOpenTime(a, b));
+  }, [roomExists, room, season, day]);
 
   return (
     <main className="min-h-screen bg-linear-to-br from-yellow-50 via-orange-100 to-orange-200 flex flex-col items-center py-10">
