@@ -14,11 +14,11 @@ describe("SearchBar", () => {
   });
 
   it("calls onChange when input value changes", () => {
-    const handleChange = jest.fn();
-    render(<SearchBar value="" onChange={handleChange} />);
+    const recordInputChange = jest.fn();
+    render(<SearchBar value="" onChange={recordInputChange} />);
     const input = screen.getByRole("textbox");
     fireEvent.change(input, { target: { value: "test" } });
-    expect(handleChange).toHaveBeenCalled();
+    expect(recordInputChange).toHaveBeenCalled();
   });
 
   it("renders the search icon", () => {

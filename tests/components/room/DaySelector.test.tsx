@@ -20,14 +20,16 @@ describe("DaySelector", () => {
 
   it("calls onChange when a different day is selected", () => {
     let selectedDay = DAYS[0];
-    const handleChange = jest.fn((e: React.ChangeEvent<HTMLInputElement>) => {
-      selectedDay = e.target.value;
-    });
-    render(<DaySelector day={selectedDay} onChange={handleChange} />);
+    const updateSelectedDay = jest.fn(
+      (e: React.ChangeEvent<HTMLInputElement>) => {
+        selectedDay = e.target.value;
+      },
+    );
+    render(<DaySelector day={selectedDay} onChange={updateSelectedDay} />);
 
     const input = screen.getByLabelText(DAYS[1]);
     input.click();
-    expect(handleChange).toHaveBeenCalled();
+    expect(updateSelectedDay).toHaveBeenCalled();
     expect(selectedDay).toBe(DAYS[1]);
   });
 });
