@@ -20,14 +20,21 @@ describe("SeasonSelector", () => {
 
   it("calls onChange when a different season is selected", () => {
     let selectedSeason = SEASONS[0].value;
-    const handleChange = jest.fn((e: React.ChangeEvent<HTMLInputElement>) => {
-      selectedSeason = e.target.value;
-    });
-    render(<SeasonSelector season={selectedSeason} onChange={handleChange} />);
+    const updateSelectedSeason = jest.fn(
+      (e: React.ChangeEvent<HTMLInputElement>) => {
+        selectedSeason = e.target.value;
+      },
+    );
+    render(
+      <SeasonSelector
+        season={selectedSeason}
+        onChange={updateSelectedSeason}
+      />,
+    );
 
     const input = screen.getByLabelText(SEASONS[1].label);
     input.click();
-    expect(handleChange).toHaveBeenCalled();
+    expect(updateSelectedSeason).toHaveBeenCalled();
     expect(selectedSeason).toBe(SEASONS[1].value);
   });
 });
