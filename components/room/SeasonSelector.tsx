@@ -15,7 +15,7 @@ const SeasonSelector = ({ season, onChange }: Props) => (
           value={value}
           checked={season === value}
           onChange={onChange}
-          className="accent-orange-400 w-5 h-5"
+          className="accent-orange-400 size-5"
         />
         <label htmlFor={id} className="text-orange-700 font-medium">
           {label}
