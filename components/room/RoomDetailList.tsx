@@ -7,11 +7,11 @@ interface Props {
   data: RoomDataItem[];
 }
 
-const RoomDetailList = ({ data }: Props) => {
-  const subjectKey = (data: RoomDataItem): string => {
-    return `${data.subject}-${data.room}-${data.season}-${data.open_time}`;
-  };
+const subjectKey = (data: RoomDataItem): string => {
+  return `${data.subject}-${data.room}-${data.season}-${data.open_time}`;
+};
 
+const RoomDetailList = ({ data }: Props) => {
   return (
     <>
       {data.map((item) => (

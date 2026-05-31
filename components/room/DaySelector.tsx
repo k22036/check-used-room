@@ -16,6 +16,7 @@ const DaySelector = ({ day, onChange }: Props) => (
           checked={d === day}
           onChange={onChange}
           className="accent-orange-400 size-5"
+          aria-label={d}
         />
         <label htmlFor={`day-${d}`} className="text-orange-600 font-medium">
           {d}

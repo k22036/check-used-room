@@ -22,6 +22,7 @@ const SearchBar = ({
       <input
         type="text"
         placeholder={placeholder}
+        aria-label={placeholder}
         className="
           block w-full pl-10 pr-4 py-3
           border-2 border-orange-200 rounded-xl

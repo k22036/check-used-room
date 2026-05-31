@@ -18,6 +18,8 @@ type Params = {
   room: string;
 };
 
+const roomData: RoomData = completeData;
+
 export default function RoomClient() {
   const params = useParams<Params>();
   const room = decodeURIComponent(params.room);
@@ -30,7 +32,6 @@ export default function RoomClient() {
   const changeDayValue = (event: React.ChangeEvent<HTMLInputElement>) =>
     setDay(event.target.value);
 
-  const roomData: RoomData = completeData;
   const roomExists = !!roomData[room];
   const filteredData = useMemo(() => {
     if (!roomExists) return [];
