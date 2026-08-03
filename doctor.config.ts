@@ -2,7 +2,7 @@ import type { ReactDoctorConfig } from "react-doctor/api";
 
 export default {
   verbose: true,
-  diff: false,
+  scope: "full",
   ignore: {
     files: [".unlighthouse/**"],
   },
