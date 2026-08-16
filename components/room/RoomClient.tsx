@@ -20,9 +20,17 @@ type Params = {
 
 const roomData: RoomData = completeData;
 
+const safeDecodeURIComponent = (value: string) => {
+  try {
+    return decodeURIComponent(value);
+  } catch {
+    return value;
+  }
+};
+
 export default function RoomClient() {
   const params = useParams<Params>();
-  const room = decodeURIComponent(params.room);
+  const room = safeDecodeURIComponent(params.room);
 
   const [season, setSeason] = useState(SEASONS[0].value);
   const changeSeasonValue = (event: React.ChangeEvent<HTMLInputElement>) =>

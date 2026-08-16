@@ -12,6 +12,15 @@ describe("DaySelector", () => {
     });
   });
 
+  it("groups all day inputs together", () => {
+    render(<DaySelector day={DAYS[0]} onChange={() => {}} />);
+    const inputs = screen.getAllByRole("radio");
+    expect(inputs).toHaveLength(DAYS.length);
+    inputs.forEach((input) => {
+      expect(input).toHaveAttribute("name", "day");
+    });
+  });
+
   it("checks the correct day input", () => {
     render(<DaySelector day={DAYS[2]} onChange={() => {}} />);
     const input = screen.getByLabelText(DAYS[2]);
