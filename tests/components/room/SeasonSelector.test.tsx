@@ -12,6 +12,15 @@ describe("SeasonSelector", () => {
     });
   });
 
+  it("groups all season inputs together", () => {
+    render(<SeasonSelector season={SEASONS[0].value} onChange={() => {}} />);
+    const inputs = screen.getAllByRole("radio");
+    expect(inputs).toHaveLength(SEASONS.length);
+    inputs.forEach((input) => {
+      expect(input).toHaveAttribute("name", "season");
+    });
+  });
+
   it("checks the correct season input", () => {
     render(<SeasonSelector season={SEASONS[1].value} onChange={() => {}} />);
     const input = screen.getByLabelText(SEASONS[1].label);
