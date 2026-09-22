@@ -123,7 +123,13 @@
         "noConstantBinaryExpressions": "error",
         "noConsole": "error",
         "noDuplicatedSpreadProps": "error",
+        "noEqualsToNull": "error",
         "noEmptyBlockStatements": "error",
+        "noEmptySource": "error",
+        "noNestedPromises": "error",
+        "noReactForwardRef": "error",
+        "noReturnAssign": "error",
+        "noShadow": "error",
         "noExplicitAny": "error",
         "noDeprecatedImports": "error"
       }

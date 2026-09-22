@@ -7,5 +7,5 @@ interface FilterDataOptions {
 }
 
 export function filterData({ data, room, season }: FilterDataOptions) {
-  return data[room].filter((data) => data.season === season);
+  return data[room].filter((roomData) => roomData.season === season);
 }
