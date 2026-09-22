@@ -11,19 +11,21 @@ const mockData: RoomData = {
 
 describe("filterData", () => {
   it("filters data by room and season", () => {
-    const result = filterData(mockData, "A101", "前期");
+    const result = filterData({ data: mockData, room: "A101", season: "前期" });
     expect(result).toEqual([
       { subject: "数学", room: "A101", season: "前期", open_time: "月Ⅰ" },
     ]);
   });
 
   it("returns an empty array when no entries match", () => {
-    const result = filterData(mockData, "A101", "通年");
+    const result = filterData({ data: mockData, room: "A101", season: "通年" });
     expect(result).toEqual([]);
   });
 
   it("throws an error when room doesn't exist", () => {
     // 存在しないroomの場合はundefined.filterでエラーになるため、例外をテスト
-    expect(() => filterData(mockData, "C303", "前期")).toThrow();
+    expect(() =>
+      filterData({ data: mockData, room: "C303", season: "前期" }),
+    ).toThrow();
   });
 });

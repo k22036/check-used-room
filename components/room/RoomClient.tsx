@@ -40,12 +40,15 @@ export default function RoomClient() {
   const changeDayValue = (event: React.ChangeEvent<HTMLInputElement>) =>
     setDay(event.target.value);
 
-  const roomExists = !!roomData[room];
+  const roomExists = Boolean(roomData[room]);
   const filteredData = useMemo(() => {
     if (!roomExists) return [];
-    return filterData(roomData, room, season)
-      .filter((data) => data.open_time[0] === day)
-      .sort((a, b) => compareOpenTime(a, b));
+    return (
+      filterData({ data: roomData, room, season })
+        .filter((data) => data.open_time[0] === day)
+        // biome-ignore lint/complexity/useMaxParams: Array.sort comparators require two positional arguments.
+        .sort((a, b) => compareOpenTime({ first: a, second: b }))
+    );
   }, [roomExists, room, season, day]);
 
   return (
