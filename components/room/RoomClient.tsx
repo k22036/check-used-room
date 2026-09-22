@@ -14,9 +14,9 @@ import completeData from "@/lib/data/complete_data.json";
 import { filterData } from "@/lib/filterData";
 import type { RoomData } from "@/lib/types";
 
-type Params = {
+interface Params extends Record<string, string | string[] | undefined> {
   room: string;
-};
+}
 
 const roomData: RoomData = completeData;
 
@@ -40,12 +40,15 @@ export default function RoomClient() {
   const changeDayValue = (event: React.ChangeEvent<HTMLInputElement>) =>
     setDay(event.target.value);
 
-  const roomExists = !!roomData[room];
+  const roomExists = Boolean(roomData[room]);
   const filteredData = useMemo(() => {
     if (!roomExists) return [];
-    return filterData(roomData, room, season)
-      .filter((data) => data.open_time[0] === day)
-      .sort((a, b) => compareOpenTime(a, b));
+    return (
+      filterData({ data: roomData, room, season })
+        .filter((data) => data.open_time[0] === day)
+        // biome-ignore lint/complexity/useMaxParams: Array.sort comparators require two positional arguments.
+        .sort((a, b) => compareOpenTime({ first: a, second: b }))
+    );
   }, [roomExists, room, season, day]);
 
   return (
@@ -53,7 +56,7 @@ export default function RoomClient() {
       <div className="w-full max-w-2xl bg-white rounded-lg shadow p-8">
         <BackToHome />
         <PageTitle title={`${room} の詳細`} />
-        <SeasonSelector season={season} onChange={changeSeasonValue} />
+        <SeasonSelector onChange={changeSeasonValue} season={season} />
         <DaySelector day={day} onChange={changeDayValue} />
         {roomExists ? <RoomDetailList data={filteredData} /> : <RoomNotFound />}
       </div>

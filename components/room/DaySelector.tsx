@@ -1,25 +1,25 @@
 import { DAYS } from "@/lib/constants/date";
 
-type Props = {
+interface Props {
   day: string;
   onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
-};
+}
 
 const DaySelector = ({ day, onChange }: Props) => (
   <div className="flex flex-wrap justify-center gap-3 mb-8">
     {DAYS.map((d) => (
-      <div key={d} className="flex items-center gap-1">
+      <div className="flex items-center gap-1" key={d}>
         <input
-          id={`day-${d}`}
-          type="radio"
-          name="day"
-          value={d}
-          checked={d === day}
-          onChange={onChange}
-          className="accent-orange-400 size-5"
           aria-label={d}
+          checked={d === day}
+          className="accent-orange-400 size-5"
+          id={`day-${d}`}
+          name="day"
+          onChange={onChange}
+          type="radio"
+          value={d}
         />
-        <label htmlFor={`day-${d}`} className="text-orange-600 font-medium">
+        <label className="text-orange-600 font-medium" htmlFor={`day-${d}`}>
           {d}
         </label>
       </div>

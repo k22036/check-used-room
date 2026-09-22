@@ -1,12 +1,12 @@
 import SearchIcon from "@mui/icons-material/Search";
 import type React from "react";
 
-type SearchBarProps = {
-  value: string;
+interface SearchBarProps {
+  className?: string;
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   placeholder?: string;
-  className?: string;
-};
+  value: string;
+}
 
 const SearchBar = ({
   value,
@@ -20,8 +20,6 @@ const SearchBar = ({
         <SearchIcon className="text-orange-400" />
       </span>
       <input
-        type="text"
-        placeholder={placeholder}
         aria-label={placeholder}
         className="
           block w-full pl-10 pr-4 py-3
@@ -31,8 +29,10 @@ const SearchBar = ({
           focus:outline-none focus:ring-2 focus:ring-orange-300
           shadow-md transition
         "
-        value={value}
         onChange={onChange}
+        placeholder={placeholder}
+        type="text"
+        value={value}
       />
     </div>
   </div>

@@ -18,8 +18,129 @@
   },
   "linter": {
     "enabled": true,
+    "domains": {
+      "next": "recommended",
+      "playwright": "recommended",
+      "react": "recommended",
+      "tailwind": "recommended",
+      "test": "recommended",
+      "types": "recommended"
+    },
     "rules": {
-      "preset": "recommended"
+      "preset": "recommended",
+      "complexity": {
+        "noExcessiveCognitiveComplexity": "error",
+        "noImplicitCoercions": "error",
+        "noRedundantDefaultExport": "error",
+        "noUselessCatchBinding": "error",
+        "noUselessReturn": "error",
+        "noUselessStringConcat": "error",
+        "noUselessUndefined": "error",
+        "useArrayFind": "error",
+        "useWhile": "error",
+        "useMaxParams": {
+          "level": "error",
+          "options": {
+            "max": 1
+          }
+        }
+      },
+      "correctness": {
+        "noBeforeInteractiveScriptOutsideDocument": "error",
+        "noNextAsyncClientComponent": "error",
+        "noNestedComponentDefinitions": "error",
+        "noProcessGlobal": "error",
+        "noReactPropAssignments": "error",
+        "noUndeclaredDependencies": "error",
+        "noUnusedInstantiation": "error",
+        "noUnusedImports": "error",
+        "noUnusedVariables": "error",
+        "useUniqueElementIds": "error",
+        "useSingleJsDocAsterisk": "error"
+      },
+      "performance": {
+        "noSyncScripts": "error"
+      },
+      "style": {
+        "useCollapsedIf": "error",
+        "useConsistentArrayType": "error",
+        "useConsistentArrowReturn": "error",
+        "useConsistentBuiltinInstantiation": "error",
+        "useConsistentCurlyBraces": "error",
+        "useConsistentMethodSignatures": {
+          "level": "error",
+          "options": {
+            "style": "property"
+          }
+        },
+        "useConsistentTypeDefinitions": {
+          "level": "error",
+          "options": {
+            "style": "interface"
+          }
+        },
+        "useDefaultParameterLast": "error",
+        "useDefaultSwitchClause": "error",
+        "useExplicitLengthCheck": "error",
+        "useForOf": "error",
+        "useFragmentSyntax": "error",
+        "useGlobalThis": "error",
+        "useGroupedAccessorPairs": "error",
+        "useNodeAssertStrict": "error",
+        "useNumberNamespace": "error",
+        "useObjectSpread": "error",
+        "useReactFunctionComponents": "error",
+        "useReadonlyClassProperties": "error",
+        "useSelfClosingElements": "error",
+        "useShorthandAssign": "error",
+        "useSpreadOverApply": "error",
+        "useSymbolDescription": "error",
+        "useThrowNewError": "error",
+        "useThrowOnlyError": "error",
+        "useTrimStartEnd": "error",
+        "useUnifiedTypeSignatures": "error",
+        "noCommonJs": "error",
+        "noEnum": "error",
+        "noSubstr": "error",
+        "noUnusedTemplateLiteral": "error",
+        "noUselessElse": "error",
+        "noYodaExpression": "error",
+        "noRestrictedImports": {
+          "level": "error",
+          "options": {
+            "paths": {
+              "next/head": "Use the Metadata API in app/ instead.",
+              "next/router": "This project uses the App Router; use next/navigation."
+            }
+          }
+        },
+        "noNonNullAssertion": "error",
+        "useAsConstAssertion": "error",
+        "useImportType": "error"
+      },
+      "suspicious": {
+        "noAlert": "error",
+        "noConstantBinaryExpressions": "error",
+        "noConsole": "error",
+        "noDuplicatedSpreadProps": "error",
+        "noEqualsToNull": "error",
+        "noEmptyBlockStatements": "error",
+        "noEmptySource": "error",
+        "noNestedPromises": "error",
+        "noUnnecessaryConditions": "error",
+        "noReactForwardRef": "error",
+        "noReturnAssign": "error",
+        "noShadow": "error",
+        "noUnassignedVariables": "error",
+        "noUnknownAttribute": "error",
+        "noUnusedExpressions": "error",
+        "noVar": "error",
+        "useErrorMessage": "error",
+        "useNumberToFixedDigitsArgument": "error",
+        "useStaticResponseMethods": "error",
+        "noExplicitAny": "error",
+        "noDeprecatedImports": "error"
+      }
     }
   },
   "javascript": {
@@ -31,7 +152,15 @@
     "enabled": true,
     "actions": {
       "source": {
-        "organizeImports": "on"
+        "noDuplicateClasses": "on",
+        "organizeImports": "on",
+        "useSortedInterfaceMembers": "on",
+        "useSortedAttributes": {
+          "level": "on",
+          "options": {
+            "sortOrder": "natural"
+          }
+        }
       }
     }
   }

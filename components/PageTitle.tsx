@@ -1,7 +1,7 @@
-type PageTitleProps = {
-  title: string;
+interface PageTitleProps {
   className?: string;
-};
+  title: string;
+}
 
 const PageTitle = ({ title, className = "" }: PageTitleProps) => (
   <h1

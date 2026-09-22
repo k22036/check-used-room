@@ -12,6 +12,7 @@ test.beforeEach(async ({ page }) => {
   await page.waitForLoadState("load");
 });
 
+// biome-ignore lint/complexity/useMaxParams: Playwright's afterEach callback receives both fixtures and testInfo.
 test.afterEach(async ({ page }, testInfo) => {
   if (testInfo.status !== testInfo.expectedStatus) {
     const screenshot = await page.screenshot({ fullPage: true });
@@ -23,12 +24,24 @@ test.afterEach(async ({ page }, testInfo) => {
 });
 
 test.describe("Transition Tests", () => {
-  const inputSearchString = async (page: Page, searchString: string) => {
+  const inputSearchString = async ({
+    page,
+    searchString,
+  }: {
+    page: Page;
+    searchString: string;
+  }) => {
     const input = page.getByPlaceholder("教室名で検索");
     await input.fill(searchString);
   };
 
-  const clickRoom = async (page: Page, roomSubstring: string) => {
+  const clickRoom = async ({
+    page,
+    roomSubstring,
+  }: {
+    page: Page;
+    roomSubstring: string;
+  }) => {
     const roomLink = page.getByRole("link").filter({ hasText: roomSubstring });
     await roomLink.first().click();
   };
@@ -38,9 +51,8 @@ test.describe("Transition Tests", () => {
     await expect(title).toHaveText(/詳細/);
   };
 
-  const goBack = async (page: Page) => {
-    return page.getByRole("link", { name: /ホームに戻る/ }).click();
-  };
+  const goBack = async (page: Page) =>
+    page.getByRole("link", { name: /ホームに戻る/ }).click();
 
   const checkHome = async (page: Page) => {
     const title = page.getByRole("heading", { level: 1 });
@@ -49,9 +61,9 @@ test.describe("Transition Tests", () => {
 
   test("should navigate to room detail and back", async ({ page }) => {
     const searchString = "14";
-    await inputSearchString(page, searchString);
+    await inputSearchString({ page, searchString });
     const roomSubstring = "302";
-    await clickRoom(page, roomSubstring);
+    await clickRoom({ page, roomSubstring });
     await checkRoomDetail(page);
     await goBack(page);
     await checkHome(page);

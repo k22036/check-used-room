@@ -7,25 +7,22 @@ interface Props {
   data: RoomDataItem[];
 }
 
-const subjectKey = (data: RoomDataItem): string => {
-  return `${data.subject}-${data.room}-${data.season}-${data.open_time}`;
-};
+const subjectKey = (data: RoomDataItem): string =>
+  `${data.subject}-${data.room}-${data.season}-${data.open_time}`;
 
-const RoomDetailList = ({ data }: Props) => {
-  return (
-    <>
-      {data.map((item) => (
-        <div
-          key={subjectKey(item)}
-          className="mb-6 p-5 rounded-lg border border-orange-200 bg-orange-50/60 shadow-sm"
-        >
-          <SubjectTitle subject={item.subject} />
-          <SubjectContent data={item} />
-        </div>
-      ))}
-      {data.length === 0 && <SubjectNotFound />}
-    </>
-  );
-};
+const RoomDetailList = ({ data }: Props) => (
+  <>
+    {data.map((item) => (
+      <div
+        className="mb-6 p-5 rounded-lg border border-orange-200 bg-orange-50/60 shadow-sm"
+        key={subjectKey(item)}
+      >
+        <SubjectTitle subject={item.subject} />
+        <SubjectContent data={item} />
+      </div>
+    ))}
+    {data.length === 0 && <SubjectNotFound />}
+  </>
+);
 
 export default RoomDetailList;

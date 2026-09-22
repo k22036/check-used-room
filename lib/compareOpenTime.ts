@@ -1,11 +1,16 @@
 import { DAYS } from "./constants/date";
 import type { RoomDataItem } from "./types";
 
-export function compareOpenTime(a: RoomDataItem, b: RoomDataItem) {
-  const temp = DAYS.indexOf(a.open_time[0]) - DAYS.indexOf(b.open_time[0]);
+interface CompareOpenTimeOptions {
+  first: RoomDataItem;
+  second: RoomDataItem;
+}
+
+export function compareOpenTime({ first, second }: CompareOpenTimeOptions) {
+  const temp =
+    DAYS.indexOf(first.open_time[0]) - DAYS.indexOf(second.open_time[0]);
   if (temp === 0) {
-    return a.open_time[1].localeCompare(b.open_time[1]);
-  } else {
-    return temp;
+    return first.open_time[1].localeCompare(second.open_time[1]);
   }
+  return temp;
 }

@@ -1,5 +1,11 @@
 import type { RoomData } from "./types";
 
-export function filterData(data: RoomData, room: string, season: string) {
-  return data[room].filter((data) => data.season === season);
+interface FilterDataOptions {
+  data: RoomData;
+  room: string;
+  season: string;
+}
+
+export function filterData({ data, room, season }: FilterDataOptions) {
+  return data[room].filter((roomData) => roomData.season === season);
 }

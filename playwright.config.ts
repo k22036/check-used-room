@@ -1,3 +1,4 @@
+import process from "node:process";
 import { defineConfig, devices } from "@playwright/test";
 
 /**
@@ -16,7 +17,7 @@ export default defineConfig({
   /* Run tests in files in parallel */
   fullyParallel: true,
   /* Fail the build on CI if you accidentally left test.only in the source code. */
-  forbidOnly: !!process.env.CI,
+  forbidOnly: Boolean(process.env.CI),
   /* Retry on CI only */
   retries: process.env.CI ? 2 : 0,
   /* Optimize workers for CI - use more workers for faster execution */

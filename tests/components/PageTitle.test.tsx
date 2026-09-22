@@ -11,7 +11,7 @@ describe("PageTitle", () => {
   });
 
   it("applies custom className", () => {
-    render(<PageTitle title="タイトル" className="custom-class" />);
+    render(<PageTitle className="custom-class" title="タイトル" />);
     const heading = screen.getByRole("heading", { name: "タイトル" });
     expect(heading).toHaveClass("custom-class");
   });
