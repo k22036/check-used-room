@@ -1,6 +1,6 @@
 interface PageTitleProps {
-  title: string;
   className?: string;
+  title: string;
 }
 
 const PageTitle = ({ title, className = "" }: PageTitleProps) => (

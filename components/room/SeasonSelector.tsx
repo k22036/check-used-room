@@ -1,8 +1,8 @@
 import { SEASONS } from "@/lib/constants/date";
 
 interface Props {
-  season: string;
   onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  season: string;
 }
 
 const SeasonSelector = ({ season, onChange }: Props) => (

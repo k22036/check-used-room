@@ -154,6 +154,7 @@
       "source": {
         "noDuplicateClasses": "on",
         "organizeImports": "on",
+        "useSortedInterfaceMembers": "on",
         "useSortedAttributes": {
           "level": "on",
           "options": {
