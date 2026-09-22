@@ -6,14 +6,18 @@ import { jest } from "@jest/globals";
 
 describe("SeasonSelector", () => {
   it("renders all season options", () => {
-    render(<SeasonSelector season={SEASONS[0].value} onChange={() => {}} />);
+    render(
+      <SeasonSelector season={SEASONS[0].value} onChange={() => undefined} />,
+    );
     SEASONS.forEach(({ label }) => {
       expect(screen.getByLabelText(label)).toBeInTheDocument();
     });
   });
 
   it("groups all season inputs together", () => {
-    render(<SeasonSelector season={SEASONS[0].value} onChange={() => {}} />);
+    render(
+      <SeasonSelector season={SEASONS[0].value} onChange={() => undefined} />,
+    );
     const inputs = screen.getAllByRole("radio");
     expect(inputs).toHaveLength(SEASONS.length);
     inputs.forEach((input) => {
@@ -22,7 +26,9 @@ describe("SeasonSelector", () => {
   });
 
   it("checks the correct season input", () => {
-    render(<SeasonSelector season={SEASONS[1].value} onChange={() => {}} />);
+    render(
+      <SeasonSelector season={SEASONS[1].value} onChange={() => undefined} />,
+    );
     const input = screen.getByLabelText(SEASONS[1].label);
     expect(input).toBeChecked();
   });

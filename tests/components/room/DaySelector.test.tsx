@@ -6,14 +6,14 @@ import { DAYS } from "@/lib/constants/date";
 
 describe("DaySelector", () => {
   it("renders all day options", () => {
-    render(<DaySelector day={DAYS[0]} onChange={() => {}} />);
+    render(<DaySelector day={DAYS[0]} onChange={() => undefined} />);
     DAYS.forEach((d) => {
       expect(screen.getByLabelText(d)).toBeInTheDocument();
     });
   });
 
   it("groups all day inputs together", () => {
-    render(<DaySelector day={DAYS[0]} onChange={() => {}} />);
+    render(<DaySelector day={DAYS[0]} onChange={() => undefined} />);
     const inputs = screen.getAllByRole("radio");
     expect(inputs).toHaveLength(DAYS.length);
     inputs.forEach((input) => {
@@ -22,7 +22,7 @@ describe("DaySelector", () => {
   });
 
   it("checks the correct day input", () => {
-    render(<DaySelector day={DAYS[2]} onChange={() => {}} />);
+    render(<DaySelector day={DAYS[2]} onChange={() => undefined} />);
     const input = screen.getByLabelText(DAYS[2]);
     expect(input).toBeChecked();
   });

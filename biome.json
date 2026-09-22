@@ -79,6 +79,26 @@
             "style": "interface"
           }
         },
+        "useDefaultParameterLast": "error",
+        "useDefaultSwitchClause": "error",
+        "useExplicitLengthCheck": "error",
+        "useForOf": "error",
+        "useFragmentSyntax": "error",
+        "useGlobalThis": "error",
+        "useGroupedAccessorPairs": "error",
+        "useNodeAssertStrict": "error",
+        "useNumberNamespace": "error",
+        "useObjectSpread": "error",
+        "useReactFunctionComponents": "error",
+        "useReadonlyClassProperties": "error",
+        "useSelfClosingElements": "error",
+        "useShorthandAssign": "error",
+        "useSpreadOverApply": "error",
+        "useSymbolDescription": "error",
+        "useThrowNewError": "error",
+        "useThrowOnlyError": "error",
+        "useTrimStartEnd": "error",
+        "useUnifiedTypeSignatures": "error",
         "noCommonJs": "error",
         "noEnum": "error",
         "noSubstr": "error",
@@ -99,8 +119,13 @@
         "useImportType": "error"
       },
       "suspicious": {
+        "noAlert": "error",
+        "noConstantBinaryExpressions": "error",
         "noConsole": "error",
-        "noExplicitAny": "error"
+        "noDuplicatedSpreadProps": "error",
+        "noEmptyBlockStatements": "error",
+        "noExplicitAny": "error",
+        "noDeprecatedImports": "error"
       }
     }
   },
