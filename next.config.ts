@@ -3,6 +3,9 @@ import type { NextConfig } from "next";
 const vercelDevHost = "https://vercel.live";
 
 const nextConfig: NextConfig = {
+  experimental: {
+    useTypeScriptCli: true,
+  },
   async headers() {
     return [
       {
