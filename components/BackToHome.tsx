@@ -6,8 +6,8 @@ const homePath = "/";
 const BackToHome: React.FC = () => (
   <div className="mb-6">
     <Link
-      href={homePath}
       className="inline-flex items-center gap-1 text-orange-500 hover:text-orange-700 font-semibold transition"
+      href={homePath}
     >
       <ArrowBackIosNewIcon fontSize="small" />
       ホームに戻る

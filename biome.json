@@ -127,9 +127,17 @@
         "noEmptyBlockStatements": "error",
         "noEmptySource": "error",
         "noNestedPromises": "error",
+        "noUnnecessaryConditions": "error",
         "noReactForwardRef": "error",
         "noReturnAssign": "error",
         "noShadow": "error",
+        "noUnassignedVariables": "error",
+        "noUnknownAttribute": "error",
+        "noUnusedExpressions": "error",
+        "noVar": "error",
+        "useErrorMessage": "error",
+        "useNumberToFixedDigitsArgument": "error",
+        "useStaticResponseMethods": "error",
         "noExplicitAny": "error",
         "noDeprecatedImports": "error"
       }
@@ -144,7 +152,14 @@
     "enabled": true,
     "actions": {
       "source": {
-        "organizeImports": "on"
+        "noDuplicateClasses": "on",
+        "organizeImports": "on",
+        "useSortedAttributes": {
+          "level": "on",
+          "options": {
+            "sortOrder": "natural"
+          }
+        }
       }
     }
   }

@@ -10,15 +10,15 @@ const SeasonSelector = ({ season, onChange }: Props) => (
     {SEASONS.map(({ value, label, id }) => (
       <div className="flex items-center gap-2" key={id}>
         <input
-          id={id}
-          type="radio"
-          name="season"
-          value={value}
           checked={season === value}
-          onChange={onChange}
           className="accent-orange-400 size-5"
+          id={id}
+          name="season"
+          onChange={onChange}
+          type="radio"
+          value={value}
         />
-        <label htmlFor={id} className="text-orange-700 font-medium">
+        <label className="text-orange-700 font-medium" htmlFor={id}>
           {label}
         </label>
       </div>

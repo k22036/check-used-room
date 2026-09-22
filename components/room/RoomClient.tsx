@@ -56,7 +56,7 @@ export default function RoomClient() {
       <div className="w-full max-w-2xl bg-white rounded-lg shadow p-8">
         <BackToHome />
         <PageTitle title={`${room} の詳細`} />
-        <SeasonSelector season={season} onChange={changeSeasonValue} />
+        <SeasonSelector onChange={changeSeasonValue} season={season} />
         <DaySelector day={day} onChange={changeDayValue} />
         {roomExists ? <RoomDetailList data={filteredData} /> : <RoomNotFound />}
       </div>

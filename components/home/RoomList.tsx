@@ -9,8 +9,8 @@ const RoomList = ({ rooms }: Props) => (
     {rooms.map((room) => (
       <li key={room}>
         <Link
-          href={`/pages/room/${room}`}
           className="block px-4 py-3 rounded-md hover:bg-orange-50 border border-orange-200 transition text-orange-700 font-medium shadow-sm"
+          href={`/pages/room/${room}`}
         >
           {room}
         </Link>

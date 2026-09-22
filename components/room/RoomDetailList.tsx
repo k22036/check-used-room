@@ -14,8 +14,8 @@ const RoomDetailList = ({ data }: Props) => (
   <>
     {data.map((item) => (
       <div
-        key={subjectKey(item)}
         className="mb-6 p-5 rounded-lg border border-orange-200 bg-orange-50/60 shadow-sm"
+        key={subjectKey(item)}
       >
         <SubjectTitle subject={item.subject} />
         <SubjectContent data={item} />

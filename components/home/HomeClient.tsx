@@ -18,10 +18,10 @@ export default function HomeClient() {
     <main className="min-h-screen bg-linear-to-br from-yellow-50 via-orange-100 to-orange-200 flex flex-col items-center py-10">
       <PageTitle title="教室一覧" />
       <SearchBar
-        value={searchText}
+        className="mb-8"
         onChange={(e) => setSearchText(e.target.value)}
         placeholder="教室名で検索..."
-        className="mb-8"
+        value={searchText}
       />
       <div className="w-full max-w-xl bg-white rounded-lg shadow p-6">
         {filteredRooms.length === 0 ? (
