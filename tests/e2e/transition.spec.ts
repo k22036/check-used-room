@@ -30,7 +30,7 @@ test.describe("Transition Tests", () => {
 
   const clickRoom = async (page: Page, roomSubstring: string) => {
     const roomLink = page.getByRole("link").filter({ hasText: roomSubstring });
-    await roomLink.click();
+    await roomLink.first().click();
   };
 
   const checkRoomDetail = async (page: Page) => {

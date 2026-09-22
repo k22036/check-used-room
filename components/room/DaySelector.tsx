@@ -12,6 +12,7 @@ const DaySelector = ({ day, onChange }: Props) => (
         <input
           id={`day-${d}`}
           type="radio"
+          name="day"
           value={d}
           checked={d === day}
           onChange={onChange}

@@ -59,4 +59,10 @@ describe("[room]/page", () => {
     render(<Page />);
     expect(screen.getByText("該当する教室がありません")).toBeInTheDocument();
   });
+
+  it("renders RoomNotFound instead of crashing for a malformed room URL", () => {
+    mockUseParams.mockReturnValueOnce({ room: "100%off" });
+    expect(() => render(<Page />)).not.toThrow();
+    expect(screen.getByText("該当する教室がありません")).toBeInTheDocument();
+  });
 });

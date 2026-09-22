@@ -12,6 +12,7 @@ const SeasonSelector = ({ season, onChange }: Props) => (
         <input
           id={id}
           type="radio"
+          name="season"
           value={value}
           checked={season === value}
           onChange={onChange}
