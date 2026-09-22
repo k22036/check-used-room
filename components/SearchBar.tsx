@@ -1,12 +1,12 @@
 import SearchIcon from "@mui/icons-material/Search";
 import type React from "react";
 
-type SearchBarProps = {
+interface SearchBarProps {
   value: string;
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   placeholder?: string;
   className?: string;
-};
+}
 
 const SearchBar = ({
   value,

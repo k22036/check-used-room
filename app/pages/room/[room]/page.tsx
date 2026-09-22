@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 import RoomClient from "@/components/room/RoomClient";
 
-type Props = {
+interface Props {
   params: Promise<{ room: string }>;
-};
+}
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { room } = await params;

@@ -1,9 +1,9 @@
 import { SEASONS } from "@/lib/constants/date";
 
-type Props = {
+interface Props {
   season: string;
   onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
-};
+}
 
 const SeasonSelector = ({ season, onChange }: Props) => (
   <div className="flex flex-wrap justify-center gap-6 mb-6">

@@ -1,10 +1,10 @@
 import { DAYS } from "./constants/date";
 import type { RoomDataItem } from "./types";
 
-type CompareOpenTimeOptions = {
+interface CompareOpenTimeOptions {
   first: RoomDataItem;
   second: RoomDataItem;
-};
+}
 
 export function compareOpenTime({ first, second }: CompareOpenTimeOptions) {
   const temp =

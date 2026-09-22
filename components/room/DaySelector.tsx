@@ -1,9 +1,9 @@
 import { DAYS } from "@/lib/constants/date";
 
-type Props = {
+interface Props {
   day: string;
   onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
-};
+}
 
 const DaySelector = ({ day, onChange }: Props) => (
   <div className="flex flex-wrap justify-center gap-3 mb-8">

@@ -14,9 +14,9 @@ import completeData from "@/lib/data/complete_data.json";
 import { filterData } from "@/lib/filterData";
 import type { RoomData } from "@/lib/types";
 
-type Params = {
+interface Params extends Record<string, string | string[] | undefined> {
   room: string;
-};
+}
 
 const roomData: RoomData = completeData;
 
